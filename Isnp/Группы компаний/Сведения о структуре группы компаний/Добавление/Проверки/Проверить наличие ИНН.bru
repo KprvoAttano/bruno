@@ -1,0 +1,18 @@
+meta {
+  name: Проверить наличие ИНН
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/checkInn
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "inn": "1234567891",
+      "period": "2023"
+  }
+}

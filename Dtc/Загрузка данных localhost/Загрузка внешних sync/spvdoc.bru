@@ -1,0 +1,18 @@
+meta {
+  name: spvdoc
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44361/api/v1/sync/syncExternalDictionary/spvdoc
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+       "{\r\n    \"kod\": \"0010000000\",\r\n    \"naim\": \"Авизо\",\r\n    \"nform\": \"\",\r\n    \"kform\": \"\",\r\n    \"kodn\": \"\",\r\n    \"dateFrom\": \"31.12.2022 21:00:00\",\r\n    \"dateTo\": \"31.12.2999 21:00:00\"\r\n  }"
+  
+  ]
+}

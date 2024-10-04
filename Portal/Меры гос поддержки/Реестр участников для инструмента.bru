@@ -1,0 +1,21 @@
+meta {
+  name: Реестр участников для инструмента
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmongovernmentsupport/api/v1/taxpayers-measures/21
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "filter": [],
+      "sort": [],
+      "searchValue": "",
+      "skip": 0,
+      "take": 5
+  }
+}

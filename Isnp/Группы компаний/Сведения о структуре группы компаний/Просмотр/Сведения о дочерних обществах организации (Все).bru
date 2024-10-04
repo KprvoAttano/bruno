@@ -1,0 +1,18 @@
+meta {
+  name: Сведения о дочерних обществах организации (Все)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/childinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "period": "2023",
+      "type": 1
+  }
+}

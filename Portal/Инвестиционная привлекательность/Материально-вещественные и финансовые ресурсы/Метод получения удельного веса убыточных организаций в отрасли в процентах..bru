@@ -1,0 +1,18 @@
+meta {
+  name: Метод получения удельного веса убыточных организаций в отрасли в процентах.
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/weightunprofitableorg
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": 2020,
+      "industryId": 1
+  }
+}

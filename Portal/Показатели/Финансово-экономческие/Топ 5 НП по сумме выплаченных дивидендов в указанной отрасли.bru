@@ -1,0 +1,18 @@
+meta {
+  name: Топ 5 НП по сумме выплаченных дивидендов в указанной отрасли
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/top5dividendspaidtaxpayers
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": "2019",
+      "industryId": "1"
+  }
+}

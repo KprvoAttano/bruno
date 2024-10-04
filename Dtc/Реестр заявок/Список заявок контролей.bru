@@ -1,0 +1,49 @@
+meta {
+  name: Список заявок контролей
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://localhost:44361/api/v1/controlsBlock/getApplications
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "approvedDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "createdDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "filingDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "reworkDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "skip": 0,
+    "take": 20,
+    "applicantInspection": null,
+    "applicantSid": null,
+    "approverInspection": null,
+    "approverSid": null,
+    "names": null,
+    "sort": [
+      {
+        "desc": true,
+        "selector": "createdDate"
+      }
+    ],
+    "statuses": null,
+    "taxNames": null,
+    "text": "",
+    "userSid": "S-1-5-21-31578921-3919838066-549122876-4460"
+  }
+}

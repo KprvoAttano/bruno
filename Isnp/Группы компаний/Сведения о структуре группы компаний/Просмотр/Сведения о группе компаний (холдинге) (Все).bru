@@ -1,0 +1,18 @@
+meta {
+  name: Сведения о группе компаний (холдинге) (Все)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/holdinginfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "period": "2023",
+      "type": 1   
+  }
+}

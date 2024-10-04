@@ -1,0 +1,21 @@
+meta {
+  name: Таблица для карточки отрасли
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmongovernmentsupport/api/v1/taxpayers-measures/16/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "filter":null,
+      "sort": [],
+      "skip": 0,
+      "take": 5,
+      "year": 2023
+  }
+}

@@ -1,0 +1,270 @@
+meta {
+  name: НП (территории)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndd/api/v1/gross-details-taxpayer
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 2, 
+    "detailsGroup": "1080",
+    "detailsTaxpayer": "2"
+  }
+}
+
+docs {
+  ## Детализация поступлений по НП 
+  
+  ### Http Request
+  **URL** `POST /api/v1/gross-details-taxpayer`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | detailMode| int -> FactAnalysisDetailModeEnum | Режим детализации| +
+  | detailsGroup| string | Детализации анализа в разрезе определенного ФА| +
+  | detailsTaxpayer| string | Детализация НП для группы| +
+  | taxpayerIds | int [] | Идентификаторы НП |
+  | territoryIds | int [] | Идентификаторы территорий| 
+  
+  ***detailMode Важно!!***
+  Нужно подставлять соответствующую группу.
+  Это будет идентификатор. Его нужно брать из идентификатора rowId. Запроса `/api/v1/gross-production`
+  
+  ***detailsTaxpayer Важно!!***
+  Нужно подставлять соответствующую группу.
+  Это будет идентификатор. Его нужно брать из идентификатора Id. Запроса `/api/v1/gross-details-group`. 
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDetailModeEnum :
+  {
+          /// <summary>
+          /// Регионы
+          /// </summary>
+          Regions = 0,
+  
+          /// <summary>
+          /// Холдинги
+          /// </summary>
+          Holdings = 1,
+  
+          /// <summary>
+          /// Группы территорий
+          /// </summary>
+          TerritoryGroups = 2,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Массив:
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | long | Идентификатор группы | 
+  | name | string | Наименование колонки |
+  | values| object[] | Значения | 
+  
+  ***Значения***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | period | int | Период | + 
+  | value | decimal | Целевое значение | +
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndd/api/v1/gross-details-taxpayer`
+  
+  Http Request Body
+  ```
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 2, 
+    "detailsGroup": "1080",
+    "detailsTaxpayer": "2"
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 6596899,
+      "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"МЕССОЯХАНЕФТЕГАЗ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 1278465.66
+        },
+        {
+          "period": 2023,
+          "value": 1212381.01
+        }
+      ]
+    },
+    {
+      "id": 3860008,
+      "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"РН-НЯГАНЬНЕФТЕГАЗ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 1285985.1
+        },
+        {
+          "period": 2023,
+          "value": 1403443.98
+        }
+      ]
+    },
+    {
+      "id": 4022825,
+      "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"СУЗУН\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 361212.31
+        },
+        {
+          "period": 2023,
+          "value": 317676.71
+        }
+      ]
+    },
+    {
+      "id": 1233491,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"БАШНЕФТЬ - ПОЛЮС\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 579918.55
+        },
+        {
+          "period": 2023,
+          "value": 513570.25
+        }
+      ]
+    },
+    {
+      "id": 568587,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИНК-НЕФТЕГАЗГЕОЛОГИЯ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 130350.23
+        },
+        {
+          "period": 2023,
+          "value": 235443.27
+        }
+      ]
+    },
+    {
+      "id": 1710761,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИРКУТСКАЯ НЕФТЯНАЯ КОМПАНИЯ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 70698.27
+        },
+        {
+          "period": 2023,
+          "value": 1465.15
+        }
+      ]
+    },
+    {
+      "id": 7108153,
+      "name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"НЕФТЯНАЯ КОМПАНИЯ \"РОСНЕФТЬ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 1683534.88
+        },
+        {
+          "period": 2023,
+          "value": 1696475.25
+        }
+      ]
+    },
+    {
+      "id": 3458927,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ТАГУЛЬСКОЕ\"",
+      "values": [
+        {
+          "period": 2023,
+          "value": 699326.3
+        }
+      ]
+    }
+  ]
+  ```
+}

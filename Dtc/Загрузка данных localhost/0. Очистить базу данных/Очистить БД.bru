@@ -1,0 +1,21 @@
+meta {
+  name: Очистить БД
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://localhost:44361/api/v1/import/clearDatabase?code=DeleteAll
+  body: json
+  auth: none
+}
+
+params:query {
+  code: DeleteAll
+}
+
+body:json {
+  {
+      "code": "DeleteAll"
+  }
+}

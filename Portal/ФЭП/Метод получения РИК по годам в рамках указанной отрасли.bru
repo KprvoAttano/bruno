@@ -1,0 +1,21 @@
+meta {
+  name: Метод получения РИК по годам в рамках указанной отрасли
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/ricindicator
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "comparableIndicatorId": 1, 
+      "indicatorId": 6, 
+      "industryId": 9, 
+      "okvedCode": null, 
+      "year": 2023
+  }
+}

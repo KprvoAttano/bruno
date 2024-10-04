@@ -1,0 +1,21 @@
+meta {
+  name: Журнал вызова методов
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-account-log/api/v1/log
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "sort": null,
+    "skip": 0,
+    "take": 20,
+    "filter": [["taxpayerKpp", "contains", "997650001"], "and", ["taxpayerName", "contains", "ГАЗПРОМТРАНС"]],
+    "type": null
+  }
+}

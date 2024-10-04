@@ -1,0 +1,213 @@
+meta {
+  name: Детализация поступлений по группам
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndd/api/v1/receipt-details-group
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ],
+    "detailMode": 0, 
+    "detailsGroup" :"1"
+  }
+}
+
+docs {
+  ## Детализация поступлений по группам 
+  
+  ### Http Request
+  **URL** `POST /api/v1/receipt-details-group`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | detailMode| int -> FactAnalysisDetailModeEnum | Режим детализации| +
+  | detailsGroup| string | Детализации анализа в разрезе определенного ФА| 
+  
+  ***detailMode Важно!!***
+  Нужно подставлять соответствующую группу.
+  Это будет идентификатор региона. Его нужно брать из идентификатора rowId. Запроса `/api/v1/receipt`. 
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDetailModeEnum :
+  {
+          /// <summary>
+          /// Регионы
+          /// </summary>
+          Regions = 0,
+  
+          /// <summary>
+          /// Холдинги
+          /// </summary>
+          Holdings = 1,
+  
+          /// <summary>
+          /// Группы территорий
+          /// </summary>
+          TerritoryGroups = 2,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Массив:
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | long | Идентификатор группы | 
+  | name | string | Наименование колонки |
+  | values| object[] | Значения | 
+  
+  ***Значения***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | period | int | Период | + 
+  | value | decimal | Целевое значение | +
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndd/api/v1/receipt-details-group`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ],
+    "detailMode": 0, 
+    "detailsGroup" :"1"
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 38,
+      "name": " Иркутская область",
+      "values": [
+        {
+          "period": 2022,
+          "value": 967708376
+        },
+        {
+          "period": 2023,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "name": " Ненецкий автономный округ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 0
+        },
+        {
+          "period": 2023,
+          "value": 215964732
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": " Республика Саха (Якутия)",
+      "values": [
+        {
+          "period": 2022,
+          "value": 0
+        },
+        {
+          "period": 2023,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "name": " Ямало-Ненецкий автономный округ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 9053434888
+        },
+        {
+          "period": 2023,
+          "value": 13261575374
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": " Красноярский край",
+      "values": [
+        {
+          "period": 2023,
+          "value": 18859382736
+        }
+      ]
+    }
+  ]
+  ```
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Получение обращений за квартал для отправки в СЦВ.
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/taxmoniprequestnsi/api/v1/create-to-scv
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "dateFrom": "2023-12-12 17:57:09",
+    "quarter": 4
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Вставка сведений о дочерних обществах организации
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:9300/inias/csc/gws/uc/taxmonip-company-group/api/v1/addchildinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+       "deletedat": null,
+       "period": "2023",
+       "reportingDate": "2023-11-11T00:00:00Z",
+       "participantInn": "",
+       "foreignRegNumber": "asd013",
+       "countryCode": "111",
+       "participantName": "ООО \"Дочка2 иностранка\"",
+       "interdependence": [
+            1
+       ],
+       "shareParent": "44"
+  }
+}

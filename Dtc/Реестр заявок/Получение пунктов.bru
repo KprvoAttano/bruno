@@ -1,0 +1,21 @@
+meta {
+  name: Получение пунктов
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://localhost:44361/api/v1/taxCode/applicationArticleItems
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "filter":["articleNumber","contains","1"]  
+       ,
+       "take":5,
+       "skip":2
+  
+  }
+}

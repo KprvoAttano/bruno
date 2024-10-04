@@ -1,0 +1,27 @@
+meta {
+  name: Реестр территорий
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmongovernmentsupport/api/v1/tool-territories/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "filter":[
+    [
+      "subjectRf",
+      "contains",
+      "с"
+    ]
+  ],
+      "sort": [],
+      "skip": 0,
+      "take": 2,
+      "year": 2023
+  }
+}

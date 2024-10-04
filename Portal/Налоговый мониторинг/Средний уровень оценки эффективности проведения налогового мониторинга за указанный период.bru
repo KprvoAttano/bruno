@@ -1,0 +1,19 @@
+meta {
+  name: Средний уровень оценки эффективности проведения налогового мониторинга за указанный период
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/efficiency/api/v1/efficiencytaxmonitoring
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "date" : "2025-01-31T21:00:00.000Z",
+      "type" : 1,
+      "industryIds" : [20]
+  }
+}

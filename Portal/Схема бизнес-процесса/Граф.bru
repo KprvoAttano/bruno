@@ -1,0 +1,11 @@
+meta {
+  name: Граф
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/taxmonbusinessprocess/api/v1/graph?holdingId=1&transportTypes=20,30,40,50,70,71,72,80,90&linkTypes=Товар&productInfoContent=amount,transportIcon,price&stages=abc&minerals=coal&products=1001,1002
+  body: none
+  auth: none
+}

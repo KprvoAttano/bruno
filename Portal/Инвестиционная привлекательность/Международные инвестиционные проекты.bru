@@ -1,0 +1,36 @@
+meta {
+  name: Международные инвестиционные проекты
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/investmentattractiveness/api/v1/investment-projects
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "sort": [
+      {
+        "selector": "holdingName",
+        "desc": false
+      }
+    ],
+    "group": null,
+    "requireTotalCount": true,
+    "searchOperation": "contains",
+    "searchValue": null,
+    "skip": 0,
+    "take": 20,
+    "userData": {},
+    "filter": [
+      [
+        "industryCode",
+        "=",
+        "oil"
+      ]
+    ]
+  }
+}

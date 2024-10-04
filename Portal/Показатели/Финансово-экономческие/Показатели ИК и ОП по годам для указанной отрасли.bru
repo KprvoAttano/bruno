@@ -1,0 +1,18 @@
+meta {
+  name: Показатели ИК и ОП по годам для указанной отрасли
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/capitalprofitindicator
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": "2023",
+      "industryId": "2"
+  }
+}

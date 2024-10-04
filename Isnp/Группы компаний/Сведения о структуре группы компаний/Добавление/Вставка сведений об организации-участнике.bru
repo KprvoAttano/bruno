@@ -1,0 +1,39 @@
+meta {
+  name: Вставка сведений об организации-участнике
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:9300/inias/csc/gws/uc/taxmonip-company-group/api/v1/addtaxpayerinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "companyGroupInfoId": null,
+    "companyGroupInfoBodyId": null,
+    "deletedat": null,
+    "period": "2021",
+    "reportingDate": "2023-12-12T00:00:00Z",
+    "filledBased": "РМ Участника НМ",
+    "affiliation": 1,
+    "taxpayerInn": "6320058723",
+    "taxpayerName": "ООО \"НОВАТЭК-СПГ ТОПЛИВО ТОЛЬЯТТИ\"",
+    "address": "Москва",
+    "okved": "01.11.1 Выращивание зерновых культур",
+    "position": 2,
+    "participantInn": "9729312558",
+    "foreignRegNumber": "",
+    "countryCode": "123",
+    "participantName": "ООО НОВАТЭК-СПГ ТОПЛИВО",
+    "cgInterdependence": [
+      1
+    ],
+    "parentOrgShare": "69",
+    "statePart": 2,
+    "statepartType": "1",
+    "statepartShare": "11"
+  }
+}

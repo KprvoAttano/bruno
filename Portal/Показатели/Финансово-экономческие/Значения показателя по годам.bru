@@ -1,0 +1,21 @@
+meta {
+  name: Значения показателя по годам
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/indicatorvalues
+  body: json
+  auth: none
+}
+
+body:json {
+  { 
+      "year": 2022,    
+      "industryId": 1,
+      "indicatorId":1,
+      "okvedCode": null,
+      "comparableIndicatorId":null
+  }
+}

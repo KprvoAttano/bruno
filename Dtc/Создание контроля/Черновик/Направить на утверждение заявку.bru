@@ -1,0 +1,421 @@
+meta {
+  name: Направить на утверждение заявку
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://localhost:44361/api/v1/controlsBlock/draft/filing
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 0,
+    "content":{
+    "code": {
+      "value": 101,
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    },
+    "name": {
+      "value": "2435234",
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    },
+    "abbreviatedName": {
+      "value": "авыф",
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    },
+    "taxTypes": [
+      {
+        "value": {
+          "code": "12501",
+          "kndCode": "1151006",
+          "name": "Налог на прибыль организаций",
+          "complianceCode": null,
+          "id": 12,
+          "startAt": null,
+          "endAt": null,
+          "modifiedAt": null
+        },
+        "status": 0,
+        "reason": null,
+        "isEdited": false,
+        "comment": ""
+      }
+    ],
+    "documentTypes": [
+      {
+        "value": {
+          "code": "0180000100",
+          "name": "Договор (контракт, соглашение) со всеми приложениями, дополнениями, изменениями, и иными неотъемлемыми частями договора",
+          "formCode": null,
+          "kndCode": null,
+          "kodN": null,
+          "complianceCode": "000125",
+          "id": 1739,
+          "startAt": null,
+          "endAt": null,
+          "modifiedAt": null
+        },
+        "status": 0,
+        "reason": null,
+        "isEdited": false,
+        "comment": ""
+      }
+    ],
+    "controls": [   
+      {
+        "value": {
+          "type": {
+            "value": 0,
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          },
+          "code": {
+            "value": "102002",
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          },
+          "name": {
+            "value": "Контроль правильности определения налоговой базы по доходам в виде дивидендов",
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          },
+          "details": [
+            {
+              "value": {
+                "type": {
+                  "value": 1,
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                },
+                "code": {
+                  "value": "10200201",
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                },
+                "name": {
+                  "value": "112321312и",
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                },
+                "details": [
+                  {
+                    "value": {
+                      "type": {
+                        "value": 2,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "code": {
+                        "value": "1020020101",
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "name": {
+                        "value": "Контроль правильности определения налоговой базы по доходам в виде дивидендов",
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "details": [],
+                      "taxCodes": [
+                        {
+                          "value": {
+                            "article": "277",
+                            "name": "Статья 277. Особенности признания доходов и расходов при передаче имущества (имущественных прав) в уставный (складочный) капитал (фонд, имущество фонда), в качестве имущественного взноса Российской Федерации в государственные корпорации, при реорганизации и ликвидации организации",
+                            "item": {
+                              "item": "2",
+                              "id": 3731,
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null
+                            },
+                            "complianceCode": "00000000042",
+                            "id": 418,
+                            "startAt": "2023-08-07T21:00:00Z",
+                            "endAt": null,
+                            "modifiedAt": null
+                          },
+                          "status": 0,
+                          "reason": null,
+                          "isEdited": false,
+                          "comment": ""
+                        }
+                      ],
+                      "reason": null,
+                      "id": 299,
+                      "startAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "endAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "modifiedAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      }
+                    },
+                    "status": 0,
+                    "reason": null,
+                    "isEdited": false,
+                    "comment": ""
+                  },
+                   {
+                    "value": {
+                      "type": {
+                        "value": 2,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "code": {
+                        "value": "1020020101",
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "name": {
+                        "value": "Контроль правильности определения налоговой базы по доходам в виде дивидендов",
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "details": [],
+                      "taxCodes": [
+                        {
+                          "value": {
+                            "article": "277",
+                            "name": "Статья 277. Особенности признания доходов и расходов при передаче имущества (имущественных прав) в уставный (складочный) капитал (фонд, имущество фонда), в качестве имущественного взноса Российской Федерации в государственные корпорации, при реорганизации и ликвидации организации",
+                            "item": {
+                              "item": "2",
+                              "id": 3731,
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null
+                            },
+                            "complianceCode": "00000000042",
+                            "id": 418,
+                            "startAt": "2023-08-07T21:00:00Z",
+                            "endAt": null,
+                            "modifiedAt": null
+                          },
+                          "status": 0,
+                          "reason": null,
+                          "isEdited": false,
+                          "comment": ""
+                        }
+                      ],
+                      "reason": null,
+                      "id": 299,
+                      "startAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "endAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      },
+                      "modifiedAt": {
+                        "value": null,
+                        "status": 0,
+                        "isEdited": false,
+                        "reason": null,
+                        "comment": ""
+                      }
+                    },
+                    "status": 0,
+                    "reason": null,
+                    "isEdited": false,
+                    "comment": ""
+                  }
+                ],
+                "taxCodes": [
+                  {
+                    "value": {
+                      "article": "277",
+                      "name": "Статья 277. Особенности признания доходов и расходов при передаче имущества (имущественных прав) в уставный (складочный) капитал (фонд, имущество фонда), в качестве имущественного взноса Российской Федерации в государственные корпорации, при реорганизации и ликвидации организации",
+                      "item": {
+                        "item": "2",
+                        "id": 3731,
+                        "startAt": null,
+                        "endAt": null,
+                        "modifiedAt": null
+                      },
+                      "complianceCode": "000000043",
+                      "id": 418,
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null
+                    },
+                    "status": 0,
+                    "reason": null,
+                    "isEdited": false,
+                    "comment": ""
+                  }
+                ],
+                "reason": null,
+                "id": 98,
+                "startAt": {
+                  "value": null,
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                },
+                "endAt": {
+                  "value": null,
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                },
+                "modifiedAt": {
+                  "value": null,
+                  "status": 0,
+                  "isEdited": false,
+                  "reason": null,
+                  "comment": ""
+                }
+              },
+              "status": 0,
+              "reason": null,
+              "isEdited": false,
+              "comment": ""
+            }        
+          ],
+          "taxCodes": [
+            {
+              "value": {
+                "article": "123",
+                "name": "123213213",
+                "item": {
+                  "item": "1",
+                  "id": 3336,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null
+                },
+                "complianceCode": "0000027",
+                "id": 379,
+                "startAt": null,
+                "endAt": null,
+                "modifiedAt": null
+              },
+              "status": 0,
+              "reason": null,
+              "isEdited": false,
+              "comment": ""
+            }
+          ],
+          "reason": "",
+          "id": 12,
+          "startAt": {
+            "value": null,
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          },
+          "endAt": {
+            "value": null,
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          },
+          "modifiedAt": {
+            "value": null,
+            "status": 0,
+            "isEdited": false,
+            "reason": null,
+            "comment": ""
+          }
+        },
+        "status": 0,
+        "reason": null,
+        "isEdited": false,
+        "comment": ""
+      }    
+    ],
+    "reason": null,
+    "id": 0,
+    "startAt": {
+      "value": "2023-08-07T21:00:00Z",
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    },
+    "endAt": {
+      "value": null,
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    },
+    "modifiedAt": {
+      "value": null,
+      "status": 0,
+      "isEdited": false,
+      "reason": null,
+      "comment": ""
+    }
+  } ,
+    "contentCode": "182",
+    "contentName": "Дивиденд990ы",
+    "status": 1,
+    "createdDate": "2024-06-25T08:59:40.4529524Z",
+    "filingDate": "2024-06-25T08:55:01.429451Z",
+    "reworkingDate": null,
+    "approvedDate": null,
+    "isProject": false
+  }
+}

@@ -1,0 +1,15 @@
+meta {
+  name: 3. Регистры
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44361/api/v1/import/uploadDictionaries
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  FileContent: @file(D:\ГНИВЦ\Загрузки\Dictionary_26.09.2024\3 Регистры.xlsx)
+}

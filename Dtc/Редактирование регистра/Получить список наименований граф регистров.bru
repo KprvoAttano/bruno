@@ -1,0 +1,15 @@
+meta {
+  name: Получить список наименований граф регистров
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://localhost:44361/api/v1/registerColumn/ColumnNames?ColumnName=Код
+  body: none
+  auth: none
+}
+
+params:query {
+  ColumnName: Код
+}

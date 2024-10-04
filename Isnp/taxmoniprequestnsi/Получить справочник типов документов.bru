@@ -1,0 +1,17 @@
+meta {
+  name: Получить справочник типов документов
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/taxmonipdictionary/api/v1/documentType
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "take":10
+  }
+}

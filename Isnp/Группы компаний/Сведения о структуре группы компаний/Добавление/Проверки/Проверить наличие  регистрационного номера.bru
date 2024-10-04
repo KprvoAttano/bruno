@@ -1,0 +1,18 @@
+meta {
+  name: Проверить наличие  регистрационного номера
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/checkNumber
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "registryNumber": "asd013",
+      "period": "2023"
+  }
+}

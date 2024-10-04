@@ -1,0 +1,31 @@
+meta {
+  name: Вставка сведений о группе компаний (холдинге)
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:9300/inias/csc/gws/uc/taxmonip-company-group/api/v1/addholdinginfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "companyGroupInfoId": null,
+    "companyGroupInfoBodyId": null,
+    "companyGroupId": null,
+    "foreignParentInfoId": null,
+    "deletedat": null,
+    "period": "2024",
+    "reportingDate": "2023-12-12T00:00:00Z",
+    "groupId": "009",
+    "companyGroupName": "НОВАТЭК",
+    "headInn": "6316031581",
+    "headName": "ПАО Новатэк",
+    "hasForeignParent": 1,
+    "foreignParentRegNumber": "555",
+    "foreignParentCountryCode": "555",
+    "foreignParentName": "Novatek"
+  }
+}

@@ -1,0 +1,67 @@
+meta {
+  name: ТОП-5 холдингов по сумме поступлений налога на прибыль в федеральный бюджет за прогнозируемый период, млрд руб.
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/forecast/api/v1/tax-income-fed-holding-top
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "take": 20,
+      "skip": 0,
+      "sort": null,
+      "group": null,
+      "requireTotalCount": true,
+      "searchOperation": "contains",
+      "searchValue": null,
+      "userData": {},
+      "filter": null,
+      "year": 2023,
+      "month": 1,
+      "industryIds": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          3
+      ],
+      "potentialYears": [],
+      "type": 1,
+      "text": "",
+      "inspectionCode": [],
+      "date": "2023-06-06T11:18:23.974Z",
+      "isCumulative": true,
+      "basement": [],
+      "layerTypes": [],
+      "holdingIds": [],
+      "idTaxpayer": null,
+      "quarter": 1,
+      "сumulative": 0,
+      "taxrecoveryFilterType": 0,
+      "okvedCodes": [],
+      "isMonopoly": null
+  }
+}

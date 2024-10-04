@@ -1,0 +1,21 @@
+meta {
+  name: Метод получения групп финансово-экономический показателей
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/indicatorgroups
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "comparableIndicatorId": 43, 
+      "indicatorId": 6, 
+      "industryId": 9, 
+      "okvedCode": null, 
+      "year": 2023
+  }
+}

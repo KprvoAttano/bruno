@@ -1,0 +1,159 @@
+meta {
+  name: Добавить или обновить блок контролей
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://localhost:44361/api/v1/controlsBlock/1
+  body: json
+  auth: none
+}
+
+body:json {
+   {
+          "code": 666,
+          "name": "Наименование блока контролей *\n",
+          "abbreviatedName": "Сокращенное наименование",
+          "taxTypes": [
+              {
+                  "code": "012101",
+                  "kndCode": null,
+                  "name": null,
+                  "complianceCode": "0000057",
+                  "id": 57,
+                  "startAt": "2021-05-10T21:00:00Z",
+                  "endAt": "2999-12-31T21:00:00Z",
+                  "modifiedAt": "2024-03-18T08:02:59.7861067Z"
+              },
+              {
+                  "code": "012103",
+                  "kndCode": null,
+                  "name": null,
+                  "complianceCode": "0000058",
+                  "id": 58,
+                  "startAt": "2021-05-10T21:00:00Z",
+                  "endAt": "2999-12-31T21:00:00Z",
+                  "modifiedAt": "2024-03-18T08:02:59.7860862Z"
+              }
+          ],
+          "documentTypes": [
+              {
+                  "code": "0380000009",
+                  "name": "Книга учета доходов и расходов и хозяйственных операций индивидуального предпринимателя",
+                  "formCode": null,
+                  "kndCode": null,
+                  "kodN": null,
+                  "complianceCode": "0000523",
+                  "id": 523,
+                  "startAt": "2021-05-31T21:00:00Z",
+                  "endAt": "2999-12-31T21:00:00Z",
+                  "modifiedAt": "2024-03-18T08:02:59.7861016Z"
+              },
+              {
+                  "code": "0530000132",
+                  "name": "Отчет о выполненных научных исследованиях и (или) опытно-конструкторских разработок (НИОКР) (отдельных этапов работ)",
+                  "formCode": null,
+                  "kndCode": null,
+                  "kodN": null,
+                  "complianceCode": "0000524",
+                  "id": 524,
+                  "startAt": "2023-05-31T21:00:00Z",
+                  "endAt": "2999-12-31T21:00:00Z",
+                  "modifiedAt": "2024-03-18T08:02:59.7861051Z"
+              }
+          ],
+          "controls": [
+              {
+                  "type": 0,
+                  "code": "555001",
+                  "name": "Наименование контроля  555001",
+                  "details": [
+                      {
+                          "type": 1,
+                          "code": "55500101",
+                          "name": "Наименование этапа контроля ",
+                          "details": [
+                              {
+                                  "type": 2,
+                                  "code": "5550010101",
+                                  "name": "Наименование подэтапа контроля ",
+                                  "details": [],
+                                  "taxCodes": [
+                                      {
+                                          "article": "2",
+                                          "name": "Статья 2. Отношения, регулируемые законодательством о налогах и сборах",
+                                          "item": {
+                                              "item": "1",
+                                              "id": 747,
+                                              "startAt": null,
+                                              "endAt": null,
+                                              "modifiedAt": null
+                                          },
+                                          "complianceCode": "0000002",
+                                          "id": 2,
+                                          "startAt": null,
+                                          "endAt": null,
+                                          "modifiedAt": null
+                                      }
+                                  ],
+                                  "id": 380,
+                                  "startAt": "2024-03-17T13:52:22.064Z",
+                                  "endAt": null,
+                                  "modifiedAt": null
+                              }
+                          ],
+                          "taxCodes": [
+                              {
+                                  "article": "2",
+                                  "name": "Статья 2. Отношения, регулируемые законодательством о налогах и сборах",
+                                  "item": {
+                                      "item": "1",
+                                      "id": 747,
+                                      "startAt": null,
+                                      "endAt": null,
+                                      "modifiedAt": null
+                                  },
+                                  "complianceCode": "0000002",
+                                  "id": 2,
+                                  "startAt": null,
+                                  "endAt": null,
+                                  "modifiedAt": null
+                              }
+                          ],
+                          "id": 379,
+                          "startAt": "2024-03-17T13:52:05.835Z",
+                          "endAt": null,
+                          "modifiedAt": null
+                      }
+                  ],
+                  "taxCodes": [
+                      {
+                          "article": "2",
+                          "name": "Статья 2. Отношения, регулируемые законодательством о налогах и сборах",
+                          "item": {
+                              "item": "1",
+                              "id": 747,
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null
+                          },
+                          "complianceCode": "0000002",
+                          "id": 2,
+                          "startAt": null,
+                          "endAt": null,
+                          "modifiedAt": null
+                      }
+                  ],
+                  "id": 378,
+                  "startAt": "2024-03-16T13:51:30.67Z",
+                  "endAt": null,
+                  "modifiedAt": null
+              }
+          ],
+          "startAt": "2024-03-17T13:51:09.83Z",
+          "endAt": null,
+          "modifiedAt": null,
+          "id": 6
+      }
+}

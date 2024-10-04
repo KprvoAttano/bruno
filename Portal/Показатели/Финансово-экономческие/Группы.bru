@@ -1,0 +1,21 @@
+meta {
+  name: Группы
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/indicatorgroups
+  body: json
+  auth: none
+}
+
+body:json {
+  { 
+      "year": 2022,    
+      "industryId": 1,
+      "indicatorId":null,
+      "okvedCode": null,
+      "comparableIndicatorId": null
+  }
+}

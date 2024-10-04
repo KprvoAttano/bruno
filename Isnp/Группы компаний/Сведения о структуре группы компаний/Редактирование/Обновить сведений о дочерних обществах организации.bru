@@ -1,0 +1,28 @@
+meta {
+  name: Обновить сведений о дочерних обществах организации
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/childinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "participantId": 538,
+    "deletedat": null,
+    "period": "2023",
+    "reportingDate": "2023-11-11T09:00:00Z",
+    "participantInn": "1234567894",
+    "foreignRegNumber": "",
+    "countryCode": "",
+    "participantName": "ООО \"Дочка111111111111111\"",
+    "interdependence": [
+      1
+    ],
+    "shareParent": "44"
+  }
+}

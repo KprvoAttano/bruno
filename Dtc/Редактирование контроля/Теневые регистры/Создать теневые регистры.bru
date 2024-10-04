@@ -1,0 +1,32 @@
+meta {
+  name: Создать теневые регистры
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/shadow/filing
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+          {
+              "id": 18,
+              "number": "09",
+              "name": "Тест по наличию оснований для контроля корректности определения предельного размера процентов, подлежащих включению в состав расходов по контролируемой задолженности",
+              "registerEndAt": "2023-09-15T21:00:00Z",
+              "controlBlockEndAt": "2024-06-07T07:07:00.831Z",
+              "isApproveChanges": true
+          },
+          {
+              "id": 2,
+              "number": "10",
+              "name": "Расчет интервалов предельных значений процентных ставок по контролируемым сделкам",
+              "registerEndAt": "2023-09-15T21:00:00Z",
+              "controlBlockEndAt": "2024-06-07T07:07:00.831Z",
+              "isApproveChanges": false
+          }
+      ]
+}

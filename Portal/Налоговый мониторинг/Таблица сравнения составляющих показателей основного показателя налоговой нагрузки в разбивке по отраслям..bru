@@ -1,0 +1,18 @@
+meta {
+  name: Таблица сравнения составляющих показателей основного показателя налоговой нагрузки в разбивке по отраслям.
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/efficiency/api/v1/taxburdentable
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "date" : "2021-01-31T21:00:00.000Z",
+      "type" : 1
+  }
+}

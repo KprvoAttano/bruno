@@ -1,0 +1,195 @@
+meta {
+  name: Добавить или обновить регистр
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+          "controlBlock": {
+              "code": 101,
+              "name": "Долговые обязательства",
+              "id": 1,
+              "startAt": null,
+              "endAt": null,
+              "modifiedAt": null
+          },
+          "members": 1,
+          "code": "10117",
+          "name": "12331231231233123123123123",
+          "taxTypes": [
+              {
+                  "code": "012601",
+                  "kndCode": null,
+                  "name": null,
+                  "complianceCode": "0000036",
+                  "id": 36,
+                  "startAt": "2021-05-10T21:00:00Z",
+                  "endAt": "2999-12-31T21:00:00Z",
+                  "modifiedAt": "2024-03-18T07:04:03.7292609Z"
+              }
+          ],
+          "linkedRegisters": [
+              {
+                  "code": "10101",
+                  "name": "Доходы в виде процентов по долговым обязательствам (кроме доходов в виде процентов: по договорам займа ценных бумаг, по ценным бумагам и на депо премий по рискам, принятым в перестрахование)",
+                  "complianceCode": "0000001",
+                  "id": 1,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null
+              },
+              {
+                  "code": "10110",
+                  "name": "Расчет интервалов предельных значений процентных ставок по контролируемым сделкам",
+                  "complianceCode": "0000002",
+                  "id": 2,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null
+              },
+              {
+                  "code": "10102",
+                  "name": "Расходы в виде процентов по долговым обязательствам (кроме расходов в виде процентов: по договорам займа ценных бумаг, по ценным бумагам и на депо премий по рискам, принятым в перестрахование)",
+                  "complianceCode": "0000003",
+                  "id": 3,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null
+              }
+          ],
+          "registerColumns": [
+              {
+                  "part": 2,
+                  "number": 44,
+                  "code": "10113244",
+                  "name": "4234324234324324234324",
+                  "columnType": {
+                      "name": "Справочник",
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null,
+                      "id": 3
+                  },
+                  "columnTotalType": {
+                      "name": "нет",
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null,
+                      "id": 1
+                  },
+                  "columnGroup": {
+                      "code": "000010",
+                      "name": "Фактическая ставка по договору",
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null,
+                      "id": 10
+                  },
+                  "dictionary": {
+                      "code": "0000004",
+                      "name": "Показатели классификатора ФНС (выдержка)",
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null,
+                      "id": 6
+                  },
+                  "taxReturnIndicators": [                    
+                      {
+                          "kndCode": null,
+                          "code": "pbaa300_5",
+                          "fullName": null,
+                          "name": "Раздел 1. Обобщенные показатели",
+                          "stringCode": "",
+                          "number": "",
+                          "complianceCode": "0000028",
+                          "id": 28,
+                          "startAt": "2023-06-18T21:00:00Z",
+                          "endAt": "2999-12-31T21:00:00Z",
+                          "modifiedAt": null
+                      },
+                      {
+                          "kndCode": null,
+                          "code": "pbaa300_1",
+                          "fullName": null,
+                          "name": "Раздел 1. Обобщенные показатели",
+                          "stringCode": "",
+                          "number": "",
+                          "complianceCode": "0000029",
+                          "id": 29,
+                          "startAt": "2023-06-18T21:00:00Z",
+                          "endAt": "2999-12-31T21:00:00Z",
+                          "modifiedAt": null
+                      }
+                  ],
+                  "taxCodes": [
+                      {
+                          "article": "1",
+                          "name": "Статья 1. Законодательство Российской Федерации о налогах и сборах, законодательство субъектов Российской Федерации о налогах и сборах, нормативные правовые акты представительных органов муниципальных образований о налогах и сборах, нормативные правовые акты представительного органа федеральной территории \"Сириус\" о местных налогах и сборах",
+                          "item": null,
+                          "complianceCode": "0000001",
+                          "id": 1,
+                          "startAt": null,
+                          "endAt": null,
+                          "modifiedAt": null
+                      }
+                  ],
+                  "controls": [
+                      {
+                          "type": 0,
+                          "code": "101008",
+                          "name": "Контроль правомерности применения оснований для признания непогашенной задолженности по долговому обязательству неконтролируемой задолженностью",
+                          "details": [
+                              {
+                                  "type": 1,
+                                  "code": "10100803",
+                                  "name": "Контроль выполнения условия по признанию непогашенной задолженности по долговому обязательству неконтролируемой задолженностью в соответствии с п.7.1 ст. 269 НК РФ",
+                                  "details": [],
+                                  "hasStages": true,
+                                  "startAt": null,
+                                  "endAt": null,
+                                  "modifiedAt": null,
+                                  "id": 85
+                              }
+                          ],
+                          "hasStages": true,
+                          "startAt": null,
+                          "endAt": null,
+                          "modifiedAt": null,
+                          "id": 8
+                      },
+                      {
+                          "type": 0,
+                          "code": "101007",
+                          "name": "Контроль правильности определения разницы между фактически начисленными процентами и предельным размером процентов по контролируемой задолженности, приравниваемой к дивидендам",
+                          "details": [],
+                          "hasStages": false,
+                          "startAt": null,
+                          "endAt": null,
+                          "modifiedAt": null,
+                          "id": 7
+                      }
+                  ],
+                  "controlCondition": null,
+                  "transferCondition": null,
+                  "fillCondition": null,
+                  "controlRatio": null,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null,
+                  "id": 741
+              }
+          ],
+          "level": "1",
+          "startAt": "2024-03-14T06:07:59.382Z",
+          "endAt": null,
+          "modifiedAt": null,
+          "id": 19
+      }
+}

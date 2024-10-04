@@ -1,0 +1,18 @@
+meta {
+  name: Регистры с большей и пустой датой
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/getAfterAndEmptyEndAt
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 1,
+    "endAt": "2024-06-07T07:07:00.831Z"
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: spvdoc Загрузка внешних справочников
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44361/api/v1/sync/uploadExternalDictionary
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  Name: spvdoc
+  FileContent: @file(D:\ГНИВЦ\Загрузки\Dictionary_26.09.2024\spvdoc.csv)
+  FileContent: @file(D:\ГНИВЦ\Загрузки\Dictionary_26.09.2024\naldoc.csv)
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Метод получения значений показателя по годам.
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/indicatorvalues
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "comparableIndicatorId": null, 
+      "indicatorId": 6, 
+      "industryId": 9, 
+      "okvedCode": null, 
+      "year": 2023
+  }
+}

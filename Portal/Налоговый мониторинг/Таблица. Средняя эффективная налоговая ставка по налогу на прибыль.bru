@@ -1,0 +1,18 @@
+meta {
+  name: Таблица. Средняя эффективная налоговая ставка по налогу на прибыль
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{portalBaseUrl}}/efficiency/api/v1/avgefficiencytaxratetable
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "date" : "2021-01-31T21:00:00.000Z",
+      "type" : 1
+  }
+}

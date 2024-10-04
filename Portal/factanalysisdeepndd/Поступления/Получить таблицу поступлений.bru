@@ -1,0 +1,260 @@
+meta {
+  name: Получить таблицу поступлений
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndd/api/v1/receipt
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ],
+    "inspectionCode": [
+      "9971"
+    ],
+    "holdingIds": [
+      195
+    ],
+    "text"
+  : 
+  "222"
+  }
+}
+
+docs {
+  ## Получение таблицы для поступлений
+  
+  ### Http Request
+  **URL** `POST /api/v1/receipt`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | decimal | Идентификатор показателя ФА|
+  | rowId | string | Идентификатор строки. Нужен для последующий декомпозиции данных | +
+  | parent | decimal | Идентификатор показателя ФА родительской строки, в которую добавляется данная строка. Основной ключ для поиска родителя
+  | orderNumberNp | long | Порядковый номер сроки, для определения расположения дочерных строк, в случае перечислений показателей одного фактора | +
+  | name | string | Наименование показателя ФА | +
+  | scale | long | Делитель для перевода в нужную единицу измерения | +
+  | unit | string |  Единица измерения| +
+  | format | string | Формат отображения | +
+  | values | object [] | Список значений показателя ФА | +
+  
+  ***Cписок значений показателя ФА***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  |  period | int | Индекс периода запрошенного диапазона ФА | + |
+  | value | decimal | Значение показателя ФА | 
+  | delta | decimal | Разница значения показателя ФА с предыдущим периодом|
+  | percent | decimal | Процент изменения значения показателя ФА от предыдущего периода|
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndd/api/v1/receipt`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ]
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 1072,
+      "rowId": null,
+      "parent": 0,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "ИТОГО НАЛОГ К ДОПЛАТЕ (+) / УМЕНЬШЕНИЮ (-) ЗА ПЕРИОД",
+      "scale": 1000000000,
+      "unit": "млрд руб.",
+      "format": "0.000",
+      "values": [
+        {
+          "period": 1,
+          "value": 786032886761,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 931033273326,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1591,
+      "rowId": "1",
+      "parent": 1072,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Итого налог к доплате (+) / уменьшению (-) по участкам недр, расположенным на территориях, указанных в пп.1 п.1 ст. 333.45 НК РФ",
+      "scale": 0,
+      "unit": null,
+      "format": null,
+      "values": [
+        {
+          "period": 1,
+          "value": 10021143264,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 32336922842,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1591,
+      "rowId": "2",
+      "parent": 1072,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Итого налог к доплате (+) / уменьшению (-) по участкам недр, расположенным на территориях, указанных в пп.2 п.1 ст. 333.45 НК РФ",
+      "scale": 0,
+      "unit": null,
+      "format": null,
+      "values": [
+        {
+          "period": 1,
+          "value": 156711928599,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 180318620843,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1591,
+      "rowId": "3",
+      "parent": 1072,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Итого налог к доплате (+) / уменьшению (-) по участкам недр, расположенным на территориях, указанных в пп.3 п.1 ст. 333.45 НК РФ",
+      "scale": 0,
+      "unit": null,
+      "format": null,
+      "values": [
+        {
+          "period": 1,
+          "value": 584069162332,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 662909569848,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1591,
+      "rowId": "4",
+      "parent": 1072,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Итого налог к доплате (+) / уменьшению (-) по участкам недр, расположенным на территориях, указанных в пп.4 п.1 ст. 333.45 НК РФ",
+      "scale": 0,
+      "unit": null,
+      "format": null,
+      "values": [
+        {
+          "period": 1,
+          "value": 35230652566,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 55468159793,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    }
+  ]
+  ```
+}

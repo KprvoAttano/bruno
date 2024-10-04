@@ -1,0 +1,39 @@
+meta {
+  name: Обновить сведений об организации-участнике
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/taxpayerinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "companyGroupInfoId": 190,
+    "companyGroupInfoBodyId": 187,
+    "deletedat": null,
+    "period": "2023",
+    "reportingDate": "2023-11-11T03:00:00Z",
+    "filledBased": "РМ участника НМ",
+    "affiliation": 1,
+    "taxpayerInn": "6316031581",
+    "taxpayerName": "ООО \"НОВАТЭК12312313123\"",
+    "address": "629309, ЯНАО, г. Новый Урнгой, мкрн Славянский, д. 9, офис 804",
+    "okved": "06.41",
+    "position": 1,
+    "participantInn": "",
+    "foreignRegNumber": "",
+    "countryCode": "",
+    "participantName": "",
+    "cgInterdependence": [
+      1
+    ],
+    "parentOrgShare": "100",
+    "statePart": 2,
+    "statepartType": "1",
+    "statepartShare": "66"
+  }
+}

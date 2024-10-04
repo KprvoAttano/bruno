@@ -1,0 +1,18 @@
+meta {
+  name: Сведения об организации-участнике (Все)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/taxpayerinfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "period": "2023",
+      "type": 1
+  }
+}

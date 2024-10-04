@@ -1,0 +1,31 @@
+meta {
+  name: Обновить сведений о группе компаний (холдинге)
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/taxmonip-company-group/api/v1/holdinginfo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "companyGroupInfoId": 191,
+    "companyGroupInfoBodyId": 188,
+    "companyGroupId": 132,
+    "foreignParentInfoId": 110,
+    "deletedat": null,
+    "period": "2023",
+    "reportingDate": "2023-11-11T06:00:00Z",
+    "groupId": "009",
+    "companyGroupName": "НОВАТЭК333",
+    "headInn": "6316031581",
+    "headName": "ПАО Новатэк5555",
+    "hasForeignParent": 1,
+    "foreignParentRegNumber": "555",
+    "foreignParentCountryCode": "555",
+    "foreignParentName": "Novatek"
+  }
+}

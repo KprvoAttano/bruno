@@ -1,0 +1,18 @@
+meta {
+  name: Топ 5 НП по показателю РИК
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/top5rictaxpayersindicators
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": "2023",
+      "industryId": "2"
+  }
+}

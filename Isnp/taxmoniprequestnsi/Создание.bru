@@ -1,0 +1,54 @@
+meta {
+  name: Создание
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/taxmoniprequestnsi/api/v1/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Обращение НСИ тест",
+    "changes": [
+      {
+        "operationType": 0,
+        "code": "0030000111",
+        "documentName": "Акт сверки",
+        "codeKnd": "1151006"
+      },
+      {
+        "operationType": 1,
+        "code": "0030000111",
+        "documentName": "Акт сверки",
+        "codeKnd": "1151006",
+        "codeForm": "2",
+        "documentNameNew": "Новая версия акта сверки",
+        "commentTaxpayer": "Коментрарий НП",
+        "codeFormNew": "Новый codeForm",
+        "codeKndNew": "1151002"
+      }    
+    ],
+    "comments": [
+        {
+          "comment": "Коментарий от НП к Лк",
+          "direction": 2
+        },
+        {
+          "comment": "Коментарий от ЛК к НП",
+          "direction": 1
+        },
+        {
+          "comment": "Комментарий от ЦА к инспектору",
+          "direction": 3
+        },
+        {
+          "comment": "Коментарий от инспектора к ЦА",
+          "direction": 4
+        }
+      ]
+  }
+}

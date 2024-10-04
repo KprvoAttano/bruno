@@ -1,0 +1,15 @@
+meta {
+  name: 2. Контроли
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://localhost:44361/api/v1/import/uploadDictionaries
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  FileContent: @file(D:\ГНИВЦ\Загрузки\Dictionary_26.09.2024\2 Контроли.xlsx)
+}

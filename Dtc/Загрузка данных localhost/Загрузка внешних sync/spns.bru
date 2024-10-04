@@ -1,0 +1,17 @@
+meta {
+  name: spns
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://localhost:44361/api/v1/sync/syncExternalDictionary/spns
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+    "{\r\n    \"recordId\": 1,\r\n    \"versionId\": 1,\r\n    \"kodn\": \"012101\",\r\n    \"vidn\": \"01\",\r\n    \"snaim\": \"НДС\",\r\n    \"glav\": \"21\",\r\n    \"knd\": \"1151001\",\r\n    \"naim\": \"Налог на добавленную стоимость\",\r\n    \"isClosed\": 0,\r\n    \"isAnnuled\": 0,\r\n    \"dateFrom\": \"05/11/2021 00:00:00\",\r\n    \"dateTo\": \"2021-05-11T00:00:00\",\r\n    \"systemId\": 1,\r\n    \"trsRegId\": \"5a94d84d-ba4c-46c4-9587-24c8f071de68\",\r\n    \"trsCancelId\": \"\"\r\n  }"
+  ]
+}

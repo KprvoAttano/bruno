@@ -1,0 +1,51 @@
+meta {
+  name: Список заявок регистров
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/getApplications
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "approvedDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "createdDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "filingDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "reworkDateRange": {
+      "endAt": null,
+      "startAt": null
+    },
+    "skip": 0,
+    "take": 20,
+    "applicantInspection": null,
+    "applicantSid": null,
+    "approverInspection": null,
+    "approverSid": null,
+    "names": [
+      "Д9231-=ие)"
+    ],
+    "sort": [
+      {
+        "desc": false,
+        "selector": "approvedDate"
+      }
+    ],
+    "statuses": null,
+    "taxNames": null,
+    "text": null,
+    "userSid": null
+  }
+}

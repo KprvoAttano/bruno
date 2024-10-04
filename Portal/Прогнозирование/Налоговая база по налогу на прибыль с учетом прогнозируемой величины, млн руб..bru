@@ -1,0 +1,68 @@
+meta {
+  name: Налоговая база по налогу на прибыль с учетом прогнозируемой величины, млн руб.
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{portalBaseUrl}}/forecast/api/v1/tax-base
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "take": 20,
+    "skip": 0,
+    "sort": null,
+    "group": null,
+    "requireTotalCount": true,
+    "searchOperation": "contains",
+    "searchValue": null,
+    "userData": {},
+    "filter": null,
+    "year": 2022,
+    "month": 4,
+    "industryIds": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      3
+    ],
+    "potentialYears": [],
+    "type": 1,
+    "text": "",
+    "inspectionCode": [],
+    "date": null,
+    "isCumulative": true,
+    "basement": [],
+    "layerTypes": [],
+    "holdingIds": [],
+    "idTaxpayer": null,
+    "quarter": 1,
+    "сumulative": 0,
+    "taxrecoveryFilterType": 0,
+    "okvedCodes": [],
+    "isMonopoly": null,
+    "periodType": 2
+  }
+}

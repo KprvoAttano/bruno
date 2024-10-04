@@ -1,0 +1,184 @@
+meta {
+  name: В разрезе территорий
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndd/api/v1/gross-details-group
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 2, 
+    "detailsGroup": "1080",
+    "territoryIds":[1,2]
+  }
+}
+
+docs {
+  ## Получение аналитики "валового объема добычи" в разрезе группы холдингов
+  
+  ### Http Request
+  **URL** `POST /api/v1/gross-details-group`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | detailMode| int -> FactAnalysisDetailModeEnum | Режим детализации| +
+  | detailsGroup| string | Детализации анализа в разрезе определенного ФА| +
+  | territoryIds | int[] | Идентификаторы территорий |
+  
+  ***detailMode Важно!!***
+  Нужно подставлять соответствующую группу.
+  Это будет идентификатор региона. Его нужно брать из идентификатора rowId. Запроса `/api/v1/gross-production`. 
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDetailModeEnum :
+  {
+          /// <summary>
+          /// Регионы
+          /// </summary>
+          Regions = 0,
+  
+          /// <summary>
+          /// Холдинги
+          /// </summary>
+          Holdings = 1,
+  
+          /// <summary>
+          /// Группы территорий
+          /// </summary>
+          TerritoryGroups = 2,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Массив:
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | long | Идентификатор группы | 
+  | name | string | Наименование колонки |
+  | values| object[] | Значения | 
+  
+  ***Значения***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | period | int | Период | + 
+  | value | decimal | Целевое значение | +
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndd/api/v1/receipt-details-group`
+  
+  Http Request Body
+  ```
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 2, 
+    "detailsGroup": "1080",
+    "territoryIds":[1,2]
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 1,
+      "name": "По участкам недр, расположенным на территориях, указанных в пп.1  п.1 ст. 333.45 НК РФ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 447394.72
+        },
+        {
+          "period": 2023,
+          "value": 858884.61
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "По участкам недр, расположенным на территориях, указанных в пп.2  п.1 ст. 333.45 НК РФ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 5390165
+        },
+        {
+          "period": 2023,
+          "value": 6079781.92
+        }
+      ]
+    }
+  ]
+  ```
+}

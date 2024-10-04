@@ -1,0 +1,18 @@
+meta {
+  name: Показатели РИК по годам для указанной отрасли
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/ricindicator
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": "2021",
+      "industryId": "2"
+  }
+}

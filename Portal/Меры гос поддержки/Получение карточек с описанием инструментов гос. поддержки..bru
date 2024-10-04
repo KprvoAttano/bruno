@@ -1,0 +1,17 @@
+meta {
+  name: Получение карточек с описанием инструментов гос. поддержки.
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmongovernmentsupport/api/v1/measure-cards
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+       "governmentGroupIds" : [1,2]
+  }
+}

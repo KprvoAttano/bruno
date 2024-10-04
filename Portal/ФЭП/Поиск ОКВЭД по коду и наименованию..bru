@@ -1,0 +1,21 @@
+meta {
+  name: Поиск ОКВЭД по коду и наименованию.
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/okveds/9
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "comparableIndicatorId": null, 
+      "indicatorId": 6, 
+      "industryId": 9, 
+      "okvedCode": null, 
+      "year": 2023
+  }
+}

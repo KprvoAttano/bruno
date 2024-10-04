@@ -1,0 +1,18 @@
+meta {
+  name: Регистры с меньшей датой
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/getBeforeEndAtList
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 1,
+    "endAt": "2024-06-07T07:07:00.831Z"
+  }
+}

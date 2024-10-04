@@ -1,0 +1,18 @@
+meta {
+  name: Метод получения эффективности использования основных фондов предприятия отрасли (фондоотдача)   и среднегодовой стоимости основных средств.
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/efficiencyandcost
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": 2023,
+      "industryId": 1
+  }
+}

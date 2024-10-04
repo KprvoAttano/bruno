@@ -1,0 +1,238 @@
+meta {
+  name: Отменяет все действия
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://localhost:44361/api/v1/register/draft/cancel
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "id": 50,
+      "content": {
+          "controlBlock": {
+              "value": {
+                  "code": 101,
+                  "name": "Долговые обязательства",
+                  "id": 1,
+                  "startAt": null,
+                  "endAt": null,
+                  "modifiedAt": null
+              },
+              "status": 0,
+              "comment": null
+          },
+          "members": {
+              "value": 1,
+              "status": 0,
+              "comment": null
+          },
+          "code": {
+              "value": "10113",
+              "status": 0,
+              "comment": null
+          },
+          "name": {
+              "value": "Наименование регис",
+              "status": 0,
+              "comment": null
+          },
+          "taxTypes": [
+              {
+                  "value": {
+                      "code": "012301",
+                      "kndCode": "1151099",
+                      "name": "Налог на доходы физических лиц",
+                      "complianceCode": "0000010",
+                      "id": 10,
+                      "startAt": "2021-05-10T21:00:00Z",
+                      "endAt": "2999-12-31T21:00:00Z",
+                      "modifiedAt": null
+                  },
+                  "status": 0,
+                  "comment": null
+              },
+              {
+                  "value": {
+                      "code": "012541",
+                      "kndCode": "1151029",
+                      "name": "Налог на дополнительный доход от добычи углеводородного сырья",
+                      "complianceCode": "0000022",
+                      "id": 22,
+                      "startAt": "2021-05-10T21:00:00Z",
+                      "endAt": "2999-12-31T21:00:00Z",
+                      "modifiedAt": null
+                  },
+                  "status": 0,
+                  "comment": null
+              }
+          ],
+          "registerColumns": [
+              {
+                  "value": {
+                      "part": {
+                          "value": 2,
+                          "status": 0,
+                          "comment": null
+                      },
+                      "number": {
+                          "value": 5,
+                          "status": 0,
+                          "comment": null
+                      },
+                      "code": {
+                          "value": "10113205",
+                          "status": 0,
+                          "comment": null
+                      },
+                      "name": {
+                          "value": "Наименование графы регистра",
+                          "status": 0,
+                          "comment": null
+                      },
+                      "columnType": {
+                          "value": {
+                              "name": "Число (0)",
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null,
+                              "id": 2
+                          },
+                          "status": 0,
+                          "comment": null
+                      },
+                      "columnTotalType": {
+                          "value": {
+                              "name": "нет",
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null,
+                              "id": 1
+                          },
+                          "status": 0,
+                          "comment": null
+                      },
+                      "columnGroup": {
+                          "value": {
+                              "code": "000037",
+                              "name": "Фактический получатель дохода",
+                              "startAt": null,
+                              "endAt": null,
+                              "modifiedAt": null,
+                              "id": 30
+                          },
+                          "status": 0,
+                          "comment": null
+                      },
+                      "dictionary": null,
+                      "taxReturnIndicators": [
+                          {
+                              "value": {
+                                  "kndCode": "1151099",
+                                  "code": "pbaa300_6",
+                                  "fullName": "В том числе сумма исчисленного налога на доходы в виде дивидендов",
+                                  "name": "Раздел 1. Обобщенные показатели",
+                                  "stringCode": "045",
+                                  "number": "",
+                                  "complianceCode": "0008172",
+                                  "id": 8172,
+                                  "startAt": "2023-06-18T21:00:00Z",
+                                  "endAt": "2999-12-31T21:00:00Z",
+                                  "modifiedAt": null
+                              },
+                              "status": 0,
+                              "comment": null
+                          }
+                      ],
+                      "taxCodes": [
+                          {
+                              "value": {
+                                  "article": "1",
+                                  "name": "Статья 1. Законодательство Российской Федерации о налогах и сборах, законодательство субъектов Российской Федерации о налогах и сборах, нормативные правовые акты представительных органов муниципальных образований о налогах и сборах, нормативные правовые акты представительного органа федеральной территории \"Сириус\" о местных налогах и сборах",
+                                  "item": {
+                                      "item": "4",
+                                      "id": 741,
+                                      "startAt": null,
+                                      "endAt": null,
+                                      "modifiedAt": null
+                                  },
+                                  "complianceCode": "0000001",
+                                  "id": 1,
+                                  "startAt": null,
+                                  "endAt": null,
+                                  "modifiedAt": null
+                              },
+                              "status": 0,
+                              "comment": null
+                          },
+                          {
+                              "value": {
+                                  "article": "2",
+                                  "name": "Статья 2. Отношения, регулируемые законодательством о налогах и сборах",
+                                  "item": {
+                                      "item": "1",
+                                      "id": 747,
+                                      "startAt": null,
+                                      "endAt": null,
+                                      "modifiedAt": null
+                                  },
+                                  "complianceCode": "0000002",
+                                  "id": 2,
+                                  "startAt": null,
+                                  "endAt": null,
+                                  "modifiedAt": null
+                              },
+                              "status": 0,
+                              "comment": null
+                          }
+                      ],
+                      "controls": [
+                          {
+                              "value": {
+                                  "type": 0,
+                                  "code": "101007",
+                                  "name": "Контроль правильности определения разницы между фактически начисленными процентами и предельным размером процентов по контролируемой задолженности, приравниваемой к дивидендам",
+                                  "details": [],
+                                  "hasStages": false,
+                                  "startAt": null,
+                                  "endAt": null,
+                                  "modifiedAt": null,
+                                  "id": 7
+                              },
+                              "status": 0,
+                              "comment": null
+                          }
+                      ],
+                      "controlCondition": null,
+                      "transferCondition": null,
+                      "fillCondition": null,
+                      "controlRatio": null,
+                      "id": null,
+                      "startAt": null,
+                      "endAt": null,
+                      "modifiedAt": null
+                  },
+                  "status": 0,
+                  "comment": null
+              }
+          ],
+          "level": {
+              "value": "1",
+              "status": 0,
+              "comment": null
+          },
+          "id": null,
+          "startAt": {
+              "value": "2024-05-01T08:27:53.928Z",
+              "status": 0,
+              "comment": null
+          },
+          "endAt": null,
+          "modifiedAt": null
+      }
+  }
+}

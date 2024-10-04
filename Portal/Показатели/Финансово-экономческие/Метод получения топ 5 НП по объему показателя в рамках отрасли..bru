@@ -1,0 +1,22 @@
+meta {
+  name: Метод получения топ 5 НП по объему показателя в рамках отрасли.
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/top5taxpayersindicators
+  body: json
+  auth: none
+}
+
+body:json {
+  { 
+      "year": 2022,    
+      "industryId": 2,
+      "indicatorId": 1,
+      "okvedCode": null,
+      "comparableIndicatorId": null
+  }
+  
+}

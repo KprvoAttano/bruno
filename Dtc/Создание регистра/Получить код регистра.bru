@@ -1,0 +1,16 @@
+meta {
+  name: Получить код регистра
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://localhost:44361/api/v1/register/getCode?versionId=1&controlBlockId=1
+  body: none
+  auth: none
+}
+
+params:query {
+  versionId: 1
+  controlBlockId: 1
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Доля показателя в общей сумме выплаченных дивидендов для указанной отрасли
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{portalBaseUrl}}/taxmonindicatorcalculation/api/v1/pievalueofdividents
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "year": "2022",
+      "industryId": "1"
+  }
+}

@@ -1,0 +1,60 @@
+meta {
+  name: Обновление
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/taxmoniprequestnsi/api/v1/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "id": 758,
+      "ticketId": "af401a42",
+      "number": 0,
+      "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ""ГЛАВНЫЙ НАУЧНЫЙ ИННОВАЦИОННЫЙ ВНЕДРЕНЧЕСКИЙ ЦЕНТР"",
+      "sonoCode": "7700",
+      "inn": "7733284010",
+      "kpp": "997750001",
+      "createDate": "2024-05-30T06:41:58.0559895Z",
+      "type": "nsiChangeApplying",
+      "updateDate": null,
+      "status": 10,
+      "state": 0,
+      "initiator": 1,
+      "changes": [
+          {
+              "id": 60,
+              "requestNumber": "1",
+              "requestId": 758,
+              "operationType": 2,
+              "code": "0030000003",
+              "documentName": "Акт о смешении нефтепродуктов",
+              "codeForm": "26-НП",
+              "codeKND": "",
+              "documentNameNew": "",
+              "codeFormNew": "",
+              "codeKNDNew": "",
+              "commentTaxpayer": null,
+              "decisionNO": 2,
+              "commnetNo": null,
+              "decisionCA": 100,
+              "commnetCA": null,
+              "commentNO": "test"
+          }
+      ],
+      "comments": [
+          {
+              "comment": "test comment np",
+              "date": "2024-08-22T08:34:57.486Z"
+          },
+          {
+              "direction": 2
+          }
+      ],
+      "documents": []
+  }
+}
