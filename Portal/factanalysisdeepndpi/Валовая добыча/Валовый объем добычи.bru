@@ -1,0 +1,217 @@
+meta {
+  name: Валовый объем добычи
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/gross-production
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ],
+    "tabType": 0
+  }
+}
+
+docs {
+  ## Получения валового объема добычи
+  
+  ### Http Request
+  **URL** `POST /api/v1/gross-production`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | typeTab | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
+  
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDeepNdpiTabTypeEnum : {
+      /// <summary>
+      /// Углеводородное сырье
+      /// </summary>
+      Uvs = 0,
+  
+      /// <summary>
+      /// Иные полезные ископаемые
+      /// </summary>
+      Others = 1,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | decimal | Идентификатор показателя ФА|
+  | rowId | string | Идентификатор строки. Нужен для последующий декомпозиции данных |
+  | parent | decimal | Идентификатор показателя ФА родительской строки, в которую добавляется данная строка. Основной ключ для поиска родителя
+  | orderNumberNp | long | Порядковый номер сроки, для определения расположения дочерных строк, в случае перечислений показателей одного фактора |
+  | name | string | Наименование показателя ФА | +
+  | scale | long | Делитель для перевода в нужную единицу измерения |
+  | unit | string |  Единица измерения|
+  | format | string | Формат отображения |
+  | values | object [] | Список значений показателя ФА | +
+  
+  ***Cписок значений показателя ФА***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  |  period | int | Индекс периода запрошенного диапазона ФА | + |
+  | value | decimal | Значение показателя ФА | 
+  | delta | decimal | Разница значения показателя ФА с предыдущим периодом|
+  | percent | decimal | Процент изменения значения показателя ФА от предыдущего периода|
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/gross-production`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ],
+    "tabType": 0
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 1080,
+      "rowId": "1080",
+      "parent": 1078,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Количество добытых за период нефти и газового конденсата (Vнк) (тонны) по всем участкам недр",
+      "scale": 1,
+      "unit": "тонн",
+      "format": "-",
+      "values": [
+        {
+          "period": 1,
+          "value": 30572461.93,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 34281956.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1083,
+      "rowId": "1083",
+      "parent": 1078,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Количество добытого газа природного за период по всем участкам недр (Vгаз) (тыс. м3)",
+      "scale": 1,
+      "unit": "тыс.куб.м.",
+      "format": "0",
+      "values": [
+        {
+          "period": 1,
+          "value": 238673.01,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 335812.23,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1085,
+      "rowId": "1085",
+      "parent": 1078,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Количество добытого попутного газа за период по всем участкам недр (тыс. м3)",
+      "scale": 1,
+      "unit": "тыс.куб.м.",
+      "format": "0",
+      "values": [
+        {
+          "period": 1,
+          "value": 3342477.94,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 5937578.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    }
+  ]
+  ```
+}

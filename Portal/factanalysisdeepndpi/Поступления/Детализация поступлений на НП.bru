@@ -1,0 +1,210 @@
+meta {
+  name: Детализация поступлений на НП
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/receipt-details-taxpayer
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ],
+    "detailMode": 1, 
+    "detailsGroup" :"1",
+    "detailsTaxpayer":"6",
+    "tabType": 0
+  }
+}
+
+docs {
+  ## Детализация поступлений по НП 
+  
+  ### Http Request
+  **URL** `POST /api/v1/receipt-details-taxpayer`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | detailMode| int -> FactAnalysisDetailModeEnum | Режим детализации| +
+  | detailsGroup| string | Детализации анализа в разрезе определенного ФА| +
+  | detailsTaxpayer| string | Детализация НП для группы| +
+  | typeTab | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
+  
+  ***detailMode Важно!!***
+  Нужно подставлять соответствующую группу.
+  
+  //УВС
+  //1 - НЕФТЬ
+  //2 - ГАЗ ГОРЮЧИЙ ПРИРОДНЫЙ
+  //3 - ГАЗОВЫЙ КОНДЕНСАТ
+  
+  //ИНЫЕ
+  //1 - ЗОЛОТО
+  //2 - ЖЕЛЕЗО
+  //3 - КОМПЛЕКСЫНЕ РУДЫ
+  //4 - МЕДЬ
+  //5 - АЛМАЗЫ
+  
+  ***detailsTaxpayer Важно!!***
+  Нужно подставлять соответствующую группу.
+  Это будет идентификатор. Его нужно брать из идентификатора Id. Запроса `/api/v1/receipt-details-group`. 
+  
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDetailModeEnum :
+  {
+          /// <summary>
+          /// Регионы
+          /// </summary>
+          Regions = 0,
+  
+          /// <summary>
+          /// Холдинги
+          /// </summary>
+          Holdings = 1,
+  
+          /// <summary>
+          /// Группы территорий
+          /// </summary>
+          TerritoryGroups = 2,
+  }
+  ```
+  ```
+  FactAnalysisDeepNdpiTabTypeEnum : {
+      /// <summary>
+      /// Углеводородное сырье
+      /// </summary>
+      Uvs = 0,
+  
+      /// <summary>
+      /// Иные полезные ископаемые
+      /// </summary>
+      Others = 1,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Массив:
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | long | Идентификатор группы | 
+  | name | string | Наименование колонки |
+  | values| object[] | Значения | 
+  
+  ***Значения***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | period | int | Период | + 
+  | value | decimal | Целевое значение | +
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/receipt-details-taxpayer`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ],
+    "detailMode": 1, 
+    "detailsGroup" :"1",
+    "detailsTaxpayer":"6",
+    "tabType": 0
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 3843766,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЛУКОЙЛ-ЗАПАДНАЯ СИБИРЬ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 9053434888
+        },
+        {
+          "period": 2023,
+          "value": 13261575374
+        }
+      ]
+    },
+    {
+      "id": 4432951,
+      "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЛУКОЙЛ-ПЕРМЬ\"",
+      "values": [
+        {
+          "period": 2022,
+          "value": 0
+        },
+        {
+          "period": 2023,
+          "value": 215964732
+        }
+      ]
+    }
+  ]
+  ```
+}

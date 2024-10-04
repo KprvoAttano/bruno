@@ -1,0 +1,249 @@
+meta {
+  name: Обьем по группам - регион или холдинг
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/gross-details-group
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 0, 
+    "detailsGroup": "1080",
+    "regionIds":[2,8],
+    "holdingIds":[3,6],
+    "tabType": 0
+  }
+}
+
+docs {
+  ## Получение аналитики "валового объема добычи" в разрезе группы (регионов/холдингов)
+  
+  ### Http Request
+  **URL** `POST /api/v1/gross-details-group`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
+  | detailMode| int -> FactAnalysisDetailModeEnum | Режим детализации| +
+  | detailsGroup| string | Детализации анализа в разрезе определенного ФА| +
+  | regionIds | int[] | Идентификаторы региов |
+  | holdingIds | int[] | Идентификаторы холдингов |
+  | typeTab | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
+  
+  Передача regionIds и holdingIds зависит от выбранной группы детализации
+  
+  ***detailMode Важно!!***
+  Нужно подставлять соответствующую группу.
+  
+  //УВС
+  //1 - НЕФТЬ
+  //2 - ГАЗ ГОРЮЧИЙ ПРИРОДНЫЙ
+  //3 - ГАЗОВЫЙ КОНДЕНСАТ
+  
+  //ИНЫЕ
+  //1 - ЗОЛОТО
+  //2 - ЖЕЛЕЗО
+  //3 - КОМПЛЕКСЫНЕ РУДЫ
+  //4 - МЕДЬ
+  //5 - АЛМАЗЫ
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisDeepNdpiTabTypeEnum : {
+      /// <summary>
+      /// Углеводородное сырье
+      /// </summary>
+      Uvs = 0,
+  
+      /// <summary>
+      /// Иные полезные ископаемые
+      /// </summary>
+      Others = 1,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  ```
+  FactAnalysisDetailModeEnum :
+  {
+          /// <summary>
+          /// Регионы
+          /// </summary>
+          Regions = 0,
+  
+          /// <summary>
+          /// Холдинги
+          /// </summary>
+          Holdings = 1,
+  
+          /// <summary>
+          /// Группы территорий
+          /// </summary>
+          TerritoryGroups = 2,
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Массив:
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | id | long | Идентификатор группы | 
+  | name | string | Наименование колонки |
+  | values| object[] | Значения | 
+  
+  ***Значения***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | period | int | Период | + 
+  | value | decimal | Целевое значение | +
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/gross-details-group`
+  
+  Http Request Body
+  ```
+  {
+    "years": [
+      2022,
+      2023
+    ],
+    "periods": [
+      7
+    ], 
+    "detailMode": 0, 
+    "detailsGroup": "1080",
+    "regionIds":[2,8],
+    "holdingIds":[3,6],
+    "tabType": 0
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content Регионы
+  ```
+  [
+    {
+      "id": 2,
+      "name": " Республика Башкортостан",
+      "values": [
+        {
+          "period": 2022,
+          "value": 3090378.91
+        },
+        {
+          "period": 2023,
+          "value": 3065794.35
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": " Республика Калмыкия",
+      "values": [
+        {
+          "period": 2022,
+          "value": 2343.77
+        },
+        {
+          "period": 2023,
+          "value": 2059.79
+        }
+      ]
+    }
+  ]
+  ```
+  
+  Http Response Content Холдинги
+  ```
+  [
+    {
+      "id": 3,
+      "name": "СЛАВНЕФТЬ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 736668.08
+        },
+        {
+          "period": 2023,
+          "value": 891229.21
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ЛУКОЙЛ",
+      "values": [
+        {
+          "period": 2022,
+          "value": 4528194.05
+        },
+        {
+          "period": 2023,
+          "value": 5452249.27
+        }
+      ]
+    }
+  ]
+}
